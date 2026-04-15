@@ -1,0 +1,25 @@
+const express = require('express')
+const userController = require('../controllers/userController')
+const authMiddleware = require('../middleware/auth')
+const upload = require('../middleware/upload')
+
+const router = express.Router()
+
+router.get('/profile', authMiddleware, userController.getProfile)
+router.put('/profile', authMiddleware, userController.updateProfile)
+router.post('/profile/picture', authMiddleware, upload.single('profilePicture'), userController.uploadProfilePicture)
+router.get('/search', authMiddleware, userController.searchProfiles)
+router.get('/profile/public/:username', authMiddleware, userController.getPublicProfileByUsername)
+router.get('/profile/public-by-id/:userId', authMiddleware, userController.getPublicProfileById)
+router.post('/profile/ai-insights/generate', authMiddleware, userController.generateAiInsights)
+router.post('/follow', authMiddleware, userController.followUser)
+router.post('/unfollow', authMiddleware, userController.unfollowUser)
+router.get('/followers', authMiddleware, userController.getFollowers)
+router.get('/following', authMiddleware, userController.getFollowing)
+router.get('/progress', authMiddleware, userController.getProgress)
+router.put('/progress', authMiddleware, userController.updateProgress)
+router.get('/certificates/lecture/:lectureId', authMiddleware, userController.getLectureCertificate)
+router.get('/portfolio', authMiddleware, userController.getPortfolio)
+router.put('/portfolio', authMiddleware, userController.updatePortfolio)
+
+module.exports = router
