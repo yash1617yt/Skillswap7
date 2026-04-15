@@ -1,0 +1,40 @@
+# Node.js dependencies
+node_modules
+**/node_modules
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Build output
+dist
+build
+coverage
+
+# Database files
+*.sqlite
+*.sqlite3
+*.db
+
+# OS and editor files
+.DS_Store
+.vscode
+.idea
+
+# Package artifacts
+*.tgz
+*.vsix
+
+# Optional npm cache
+.npm
+
+# VS Code extension package
+.github.copilot-chat-*.vsix
