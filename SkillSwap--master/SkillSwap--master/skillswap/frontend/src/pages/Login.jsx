@@ -160,14 +160,15 @@ const Login = () => {
             </motion.div>
 
             {/* Login Button */}
-            <motion.button
-              variants={itemVariants}
-              type="submit"
-              disabled={isLoading}
-              className="w-full bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 text-white py-3.5 rounded-xl font-bold text-lg hover:opacity-90 disabled:opacity-60 disabled:cursor-not-allowed transform transition-all duration-200 soft-pulse gradient-glow ripple-effect shine-sweep smooth-transform relative overflow-hidden shadow-lg"
-              whileHover={{ scale: isLoading ? 1 : 1.05, boxShadow: '0 20px 40px rgba(59, 130, 246, 0.4)' }}
-              whileTap={{ scale: 0.95 }}
-            >
+            <motion.div className="flex justify-start">
+              <motion.button
+                variants={itemVariants}
+                type="submit"
+                disabled={isLoading}
+                className="bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 text-white py-3.5 px-8 rounded-xl font-bold text-lg hover:opacity-90 disabled:opacity-60 disabled:cursor-not-allowed transform transition-all duration-200 soft-pulse gradient-glow ripple-effect shine-sweep smooth-transform relative overflow-hidden shadow-lg"
+                whileHover={{ scale: isLoading ? 1 : 1.05, boxShadow: '0 20px 40px rgba(59, 130, 246, 0.4)' }}
+                whileTap={{ scale: 0.95 }}
+              >
               <motion.span initial={{ opacity: 0 }} animate={{ opacity: isLoading ? 1 : 0 }} className="absolute inset-0 flex items-center justify-center">
                 <motion.span animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1 }}>
                   ⌛
@@ -177,6 +178,7 @@ const Login = () => {
                 🔐 {isLoading ? 'Logging in...' : 'Login'}
               </motion.span>
             </motion.button>
+          </motion.div>
           </form>
 
           <motion.div variants={itemVariants} className="mt-6 space-y-3">
