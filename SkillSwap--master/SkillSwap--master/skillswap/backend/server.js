@@ -51,7 +51,7 @@ const app = express()
 const server = http.createServer(app)
 const io = new Server(server, {
   cors: {
-    origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+    origin: process.env.FRONTEND_URL || '*',
     methods: ['GET', 'POST'],
     credentials: true
   }
@@ -507,10 +507,10 @@ const startServer = async () => {
       process.exit(1)
     })
 
-    server.listen(PORT, () => {
-      console.log(`✓ Server running on http://localhost:${PORT}`)
-      console.log(`✓ WebSocket server ready`)
-    })
+  server.listen(PORT, () => {
+  console.log(`✓ Server running on port ${PORT}`)
+  console.log(`✓ WebSocket server ready`)
+})
   } catch (error) {
     console.error('Error starting server:', error)
     process.exit(1)

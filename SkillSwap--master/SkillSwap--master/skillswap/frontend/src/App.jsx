@@ -64,7 +64,10 @@ const AppRoutes = () => {
   const { isDark } = useContext(ThemeContext)
   const location = useLocation()
   const navigate = useNavigate()
-  const hideBackBar = location.pathname === '/'
+  const hideBackBar =
+    location.pathname === '/' ||
+    location.pathname.startsWith('/login') ||
+    location.pathname.startsWith('/register')
 
   const handleGlobalBack = () => {
     if (typeof window !== 'undefined' && window.history.length > 1) {
@@ -97,7 +100,7 @@ const AppRoutes = () => {
 
         {!hideBackBar && (
           <div className={`${isDark ? 'bg-slate-900/55 border-b border-white/10' : 'bg-white/80 border-b border-slate-200'} backdrop-blur-md`}>
-            <div className="max-w-7xl mx-auto px-4 py-3">
+            <div className="max-w-7xl mx-auto px-4 py-3 flex justify-start">
               <button
                 type="button"
                 onClick={handleGlobalBack}

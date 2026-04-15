@@ -132,6 +132,7 @@ const Login = () => {
                 required
               />
             </motion.div>
+            </form>  
 
             {/* Password Field */}
             <motion.div variants={itemVariants}>
@@ -179,7 +180,6 @@ const Login = () => {
               </motion.span>
             </motion.button>
           </motion.div>
-          </form>
 
           <motion.div variants={itemVariants} className="mt-6 space-y-3">
             <motion.button
